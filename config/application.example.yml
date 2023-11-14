@@ -1,0 +1,3 @@
+POSTGRES_USER: "postgres"
+POSTGRES_PASSWORD: "postgres"
+THE_MOVIE_DB_TOKEN: "your_api_auth_header_token"
