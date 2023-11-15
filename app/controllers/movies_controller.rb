@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class MoviesController < ApplicationController
+  before_action :authenticate_request
 
   def index
     movies = Movie.all
@@ -9,5 +12,4 @@ class MoviesController < ApplicationController
     movie = Movie.find(params[:id])
     render json: MovieSerializer.new(movie).serializable_hash.to_json
   end
-
 end

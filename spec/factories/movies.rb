@@ -1,18 +1,16 @@
 FactoryBot.define do
   factory :movie do
-    adult { false }
-    backdrop_path { "MyString" }
-    id { "" }
-    primary_key { "MyString" }
-    original_language { "MyString" }
-    original_title { "MyString" }
-    overview { "MyText" }
-    popularity { "9.99" }
-    poster_path { "MyString" }
-    release_date { "2023-11-12" }
-    title { "MyString" }
-    video { false }
-    vote_average { "9.99" }
-    vote_count { 1 }
+    adult { Faker::Boolean.boolean }
+    backdrop_path { Faker::Lorem.word }
+    original_language { Faker::Lorem.word }
+    original_title { Faker::Movies::HarryPotter.book }
+    overview { Faker::Lorem.word }
+    popularity { Faker::Lorem.word }
+    poster_path { Faker::Lorem.word }
+    release_date { Faker::Lorem.word }
+    title { Faker::Movies::HarryPotter.book }
+    video { Faker::Boolean.boolean }
+    vote_average { Faker::Number.decimal(l_digits: 2) }
+    vote_count { Faker::Number.digit }
   end
 end

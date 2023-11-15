@@ -20,19 +20,13 @@ namespace :db do
       if response.success?
         movies_response = JSON.parse(response.body)
         movies_response['results'].each do |object|
-          movies_to_create << object.slice(
-            "id", "adult", "backdrop_path", "original_language",
-            "original_title", "overview", "popularity", "poster_path",
-            "release_date", "title", "video", "vote_average", "vote_count"
-          )
+          Movie.create(object)
         end
-
       else
-        puts "Movies error seeded. #{response}"
+        puts "Movies error seeded. Page: #{page} Error: #{response}"
       end
     end
 
-    Movie.insert_all!(movies_to_create)
     puts "Movies successfully seeded."
   end
 

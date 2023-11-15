@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :genre do
-    id { "" }
-    primary_key { "MyString" }
-    name { "MyString" }
+    name { Faker::Name.name }
   end
 end
