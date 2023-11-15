@@ -1,20 +1,21 @@
+# frozen_string_literal: true
+
 require 'httparty'
 
 HEADERS = {
-  "Authorization": "Bearer #{ENV['THE_MOVIE_DB_TOKEN']}",
-  "accept": "application/json"
-}
+  Authorization: "Bearer #{ENV.fetch('THE_MOVIE_DB_TOKEN', nil)}",
+  accept: 'application/json'
+}.freeze
 
 BASE_URL = 'https://api.themoviedb.org/3'
 
 namespace :db do
   desc 'Seed movies from the discover-movie endpoint'
   task seed_movies: :environment do
-
-    movies_to_create = []
-
     (1..10).each do |page|
-      url = "#{BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&sort_by=popularity.desc&page=#{page}"
+      url = "#{BASE_URL}/discover/movie?include_adult=false&include_video=false
+             &language=en-US&sort_by=popularity.desc&page=#{page}"
+
       response = HTTParty.get(url, headers: HEADERS)
 
       if response.success?
@@ -27,12 +28,13 @@ namespace :db do
       end
     end
 
-    puts "Movies successfully seeded."
+    puts 'Movies successfully seeded.'
   end
+end
 
+namespace :db do
   desc 'Seed genres from the genres-movie endpoint'
   task seed_genres: :environment do
-
     url = "#{BASE_URL}/genre/movie/list?language=en"
     response = HTTParty.get(url, headers: HEADERS)
 
@@ -45,7 +47,7 @@ namespace :db do
         end
       end
 
-      puts "Genres successfully seeded."
+      puts 'Genres successfully seeded.'
     else
       puts "Genres error seeded. #{response}"
     end

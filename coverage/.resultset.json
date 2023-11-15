@@ -3,6 +3,8 @@
     "coverage": {
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/controllers/movies_controller_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -38,12 +40,13 @@
           1,
           null,
           null,
-          null,
           null
         ]
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/rails_helper.rb": {
         "lines": [
+          null,
+          null,
           null,
           null,
           1,
@@ -282,6 +285,8 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/factories/genres.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -291,6 +296,8 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/factories/movies.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           19,
@@ -311,6 +318,8 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/factories/movies_genres.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -321,6 +330,8 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/factories/reviews.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           5,
@@ -333,6 +344,8 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/factories/users.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           11,
@@ -381,6 +394,7 @@
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/app/controllers/application_controller.rb": {
         "lines": [
           null,
+          null,
           1,
           1,
           8,
@@ -397,6 +411,8 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/controllers/reviews_controller_spec.rb": {
         "lines": [
+          null,
+          null,
           null,
           1,
           null,
@@ -454,6 +470,11 @@
           1,
           null,
           1,
+          1,
+          1,
+          null,
+          null,
+          1,
           2,
           2,
           2,
@@ -466,18 +487,12 @@
           null,
           1,
           1,
-          1,
-          null,
-          null,
-          1,
-          1,
           null,
           null,
           1,
           null,
           1,
           2,
-          null,
           null,
           null,
           null,
@@ -487,6 +502,8 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/controllers/sessions_controller_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -501,12 +518,10 @@
           null,
           null,
           null,
-          null,
           1,
           1,
           1,
           1,
-          null,
           null,
           null,
           null,
@@ -531,6 +546,8 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/spec/controllers/users_controller_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -539,15 +556,6 @@
           1,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
           null,
           null,
           null,
@@ -556,8 +564,15 @@
           1,
           1,
           1,
+          1,
           null,
           null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -570,7 +585,6 @@
           null,
           null,
           1,
-          null,
           1,
           2,
           2,
@@ -584,6 +598,7 @@
           null,
           1,
           2,
+          null,
           null,
           null,
           null,
@@ -594,6 +609,7 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/app/models/movie.rb": {
         "lines": [
+          null,
           null,
           1,
           1,
@@ -615,6 +631,8 @@
       },
       "/Users/mcamelo/Documents/interviews/ruby/movie-service/lib/token_generator.rb": {
         "lines": [
+          null,
+          null,
           null,
           1,
           1,
@@ -715,6 +733,6 @@
         ]
       }
     },
-    "timestamp": 1700067173
+    "timestamp": 1700077258
   }
 }

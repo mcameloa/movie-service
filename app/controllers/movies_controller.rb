@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# MoviesController controller
 class MoviesController < ApplicationController
   before_action :authenticate_request
 

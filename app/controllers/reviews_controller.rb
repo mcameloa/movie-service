@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
+# ReviewsController controller
 class ReviewsController < ApplicationController
   before_action :authenticate_request
+
+  def index
+    reviews = Review.find_by movie_id: params[:movie_id]
+    render json: ReviewSerializer.new(reviews).serializable_hash.to_json, status: :ok
+  end
 
   def create
     review = Review.new(review_params)
@@ -12,11 +18,6 @@ class ReviewsController < ApplicationController
     else
       render json: review.errors, status: :unprocessable_entity
     end
-  end
-
-  def index
-    reviews = Review.find_by_movie_id params[:movie_id]
-    render json: ReviewSerializer.new(reviews).serializable_hash.to_json, status: :ok
   end
 
   def user_reviews
@@ -31,5 +32,4 @@ class ReviewsController < ApplicationController
       :rating
     )
   end
-
 end

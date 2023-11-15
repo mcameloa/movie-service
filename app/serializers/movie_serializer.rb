@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# MovieSerializer definition
 class MovieSerializer
   include JSONAPI::Serializer
   attributes :title,

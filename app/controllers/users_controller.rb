@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
+# UsersController controller
 class UsersController < ApplicationController
-
   def create
     user = User.new(user_params)
     if user.save
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       :username,
       :email,
       :password,
-      :password_confirmation)
+      :password_confirmation
+    )
   end
 end

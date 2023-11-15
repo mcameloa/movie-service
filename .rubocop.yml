@@ -1,0 +1,17 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-factory_bot
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*
+    - bin/*
+    - config/**/*
+    - spec/integration/**
+
+RSpec/InstanceVariable:
+  Enabled: false

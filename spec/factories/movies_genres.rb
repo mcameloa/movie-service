@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :movies_genre do
-    association :genre, factory: :genre
-    association :movie, factory: :movie
+    genre factory: %i[genre]
+    movie factory: %i[movie]
   end
 end

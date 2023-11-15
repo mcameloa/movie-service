@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # lib/token_generator.rb
 module TokenGenerator
   def self.generate_token(user)

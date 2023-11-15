@@ -1,8 +1,10 @@
 # frozen_string_literal: true
+
+# Movie class definition.
 class Movie < ApplicationRecord
   has_many :movies_genres, dependent: :destroy
   has_many :genres, through: :movies_genres, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  validates_presence_of :title
+  validates :title, presence: true
 end
