@@ -43,6 +43,8 @@ gem 'rack-cors'
 
 gem 'simplecov', require: false, group: :test
 
+gem 'rswag'
+
 group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[mri windows]

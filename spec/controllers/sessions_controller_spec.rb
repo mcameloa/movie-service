@@ -9,14 +9,14 @@ RSpec.describe SessionsController do
   describe 'POST #create' do
     context 'with valid credentials' do
       it 'returns a success response' do
-        post :create, params: { email: user.email, password: }
+        post :create, params: { user: { email: user.email, password: } }
         expect(response).to have_http_status(:ok)
       end
     end
 
     context 'with invalid credentials' do
       it 'returns a unauthorized response' do
-        post :create, params: { email: user.email, password: '123' }
+        post :create, params: { user: { email: user.email, password: '123' } }
         expect(response).to have_http_status(:unauthorized)
       end
     end
