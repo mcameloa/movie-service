@@ -43,6 +43,7 @@ gem 'rack-cors'
 
 gem 'simplecov', require: false, group: :test
 
+gem 'parallel'
 gem 'rswag'
 
 group :development, :test do

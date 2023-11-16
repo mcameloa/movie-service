@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'httparty'
+require 'parallel'
 
 HEADERS = {
   Authorization: "Bearer #{ENV.fetch('THE_MOVIE_DB_TOKEN', nil)}",
@@ -12,19 +13,25 @@ BASE_URL = 'https://api.themoviedb.org/3'
 namespace :db do
   desc 'Seed movies from the discover-movie endpoint'
   task seed_movies: :environment do
-    (1..10).each do |page|
-      url = "#{BASE_URL}/discover/movie?include_adult=false&include_video=false
-             &language=en-US&sort_by=popularity.desc&page=#{page}"
+    ActiveRecord::Base.transaction do
+      Parallel.each((1..10).to_a, in_threads: 3) do |page|
+        url = "#{BASE_URL}/discover/movie?include_adult=false&include_video=false" \
+              "&language=en-US&sort_by=popularity.desc&page=#{page}"
 
-      response = HTTParty.get(url, headers: HEADERS)
+        begin
+          response = HTTParty.get(url, headers: HEADERS)
 
-      if response.success?
-        movies_response = JSON.parse(response.body)
-        movies_response['results'].each do |object|
-          Movie.create(object)
+          if response.success?
+            movies_response = JSON.parse(response.body)
+            movies_response['results'].each do |movie_data|
+              Movie.create!(movie_data) # Using create! to ensure validations
+            end
+          else
+            puts "Movies error seeded. Page: #{page} Error: #{response}"
+          end
+        rescue StandardError => e
+          puts "Failed to fetch page #{page}: #{e.message}"
         end
-      else
-        puts "Movies error seeded. Page: #{page} Error: #{response}"
       end
     end
 
