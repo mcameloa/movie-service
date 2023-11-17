@@ -13,12 +13,12 @@ RSpec.describe MoviesController do
   describe 'GET #index' do
     it 'returns a unauthorized response' do
       request.headers['Authorization'] = ''
-      get :index
+      get :index, params: { page: 1, per_page: 1 }
       expect(response).to have_http_status(:unauthorized)
     end
 
     it 'returns a success response' do
-      get :index
+      get :index, params: { page: 1, per_page: 1 }
       expect(response).to be_successful
     end
 

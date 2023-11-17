@@ -6,12 +6,16 @@ RSpec.describe 'Movies API', type: :request do
       tags 'Movies'
       consumes 'application/json'
       security [bearerAuth: []]
+      parameter name: 'page', in: :path, type: :string, description: 'page'
+      parameter name: 'per_page', in: :path, type: :string, description: 'per_page'
       parameter name: 'Authorization', in: :header, type: :string, required: true
 
       let(:user) { create(:user) }
       let(:Authorization) { TokenGenerator.generate_token(user) }
 
       response(200, 'successful') do
+        let(:page) { 1 }
+        let(:per_page) { 10 }
         run_test!
       end
     end

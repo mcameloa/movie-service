@@ -14,6 +14,16 @@ paths:
       security:
       - bearerAuth: []
       parameters:
+      - name: page
+        in: path
+        type: string
+        description: page
+        required: true
+      - name: per_page
+        in: path
+        type: string
+        description: per_page
+        required: true
       - name: Authorization
         in: header
         type: string

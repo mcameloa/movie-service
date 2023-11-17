@@ -46,6 +46,8 @@ gem 'simplecov', require: false, group: :test
 gem 'parallel'
 gem 'rswag'
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[mri windows]
