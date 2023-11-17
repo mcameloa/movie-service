@@ -8,10 +8,16 @@ describe 'Registration API' do
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {
-          username: { type: :string },
-          email: { type: :string },
-          password: { type: :string },
-          password_confirmation: { type: :string },
+          user: {
+            type: :object,
+            properties: {
+              username: { type: :string },
+              email: { type: :string },
+              password: { type: :string },
+              password_confirmation: { type: :string },
+            }
+          }
+
         },
         required: %w[username email password password_confirmation]
       }
@@ -25,7 +31,7 @@ describe 'Registration API' do
         }
       end
 
-      response(201, 'user created') do
+      response(200, 'user created') do
         let(:user) { { user: valid_attributes } }
         run_test!
       end
