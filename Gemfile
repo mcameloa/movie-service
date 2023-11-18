@@ -48,6 +48,8 @@ gem 'rswag'
 
 gem 'kaminari'
 
+gem 'redis'
+
 group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[mri windows]

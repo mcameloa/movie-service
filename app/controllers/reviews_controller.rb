@@ -5,8 +5,16 @@ class ReviewsController < ApplicationController
   before_action :authenticate_request
 
   def index
-    reviews = Review.find_by movie_id: params[:movie_id]
-    render json: ReviewSerializer.new(reviews).serializable_hash.to_json, status: :ok
+    movie_id = params[:movie_id]
+    cache_key = "reviews-#{movie_id}"
+
+    reviews_json = Rails.cache.fetch(cache_key, expires_in: 12.hours) do
+      reviews = Review.where(movie_id: movie_id)
+      options = { include: ['user'] }
+      ReviewSerializer.new(reviews, options).serializable_hash.to_json
+    end
+
+    render json: reviews_json, status: :ok
   end
 
   def create
@@ -14,6 +22,7 @@ class ReviewsController < ApplicationController
     review.user = @current_user
     review.movie_id = params[:movie_id]
     if review.save
+      Rails.cache.delete("reviews-#{review.movie_id}")
       render json: ReviewSerializer.new(review).serializable_hash.to_json, status: :created
     else
       render json: review.errors, status: :unprocessable_entity
@@ -21,7 +30,8 @@ class ReviewsController < ApplicationController
   end
 
   def user_reviews
-    render json: ReviewSerializer.new(@current_user.reviews).serializable_hash.to_json, status: :ok
+    options = { include: %w[user] }
+    render json: ReviewSerializer.new(@current_user.reviews, options).serializable_hash.to_json, status: :ok
   end
 
   private

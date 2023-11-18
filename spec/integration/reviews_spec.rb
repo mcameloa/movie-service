@@ -15,7 +15,7 @@ RSpec.describe 'Reviews API', type: :request do
             type: :object,
             properties: {
               content: { type: :string },
-              rating: { type: :decimal },
+              rating: { type: :integer, format: :decimal },
             }
           }
         },
